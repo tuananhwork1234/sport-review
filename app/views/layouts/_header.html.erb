@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lgnavbar bg-primary navbar-dark bg-dark">
+  <div class="container-fluid">
+    <%= link_to  "Sport", root_path, class: "navbar-brand"%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+          <%= link_to  "ホーム", root_path, class: "nav-item nav-link active"%>
+           <% if user_signed_in? %>
+           <%= link_to "ログアウト",destroy_user_session_path,  :method => :delete, class: "nav-item nav-link active" %>
+           <%= link_to current_user.first_name  , users_show_path %></p>
+           <% else %>
+        <%= link_to "サインイン", new_user_session_path,class: "nav-item nav-link active" %>
+        <%= link_to "ユーザ登録", new_user_registration_path , class: "nav-item nav-link active"%>
+           <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
